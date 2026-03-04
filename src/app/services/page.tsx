@@ -236,9 +236,7 @@ export default function ServicesPage() {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <a
-                                href="https://wa.me/919049884354?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href="/book"
                                 className="px-8 py-4 bg-secondary text-gray-900 font-bold rounded-2xl shadow-lg hover:bg-secondary-dark hover:shadow-xl hover:scale-105 transition-all duration-300"
                             >
                                 📞 Book Consultation

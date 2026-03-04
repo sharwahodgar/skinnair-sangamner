@@ -159,9 +159,7 @@ export default function HomePage() {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up delay-300">
                 <a
-                  href="https://wa.me/919049884354?text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/book"
                   className="px-8 py-4 bg-gradient-to-r from-primary to-primary-dark text-white font-semibold rounded-2xl shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:scale-105 transition-all duration-300 text-center btn-shine"
                 >
                   📞 Book Appointment
@@ -561,9 +559,7 @@ export default function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://wa.me/919049884354?text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/book"
                 className="px-8 py-4 bg-secondary text-gray-900 font-bold rounded-2xl shadow-lg hover:bg-secondary-dark hover:shadow-xl hover:scale-105 transition-all duration-300"
               >
                 📞 Book Now on WhatsApp

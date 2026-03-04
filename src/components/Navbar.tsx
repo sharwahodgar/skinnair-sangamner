@@ -26,8 +26,8 @@ export default function Navbar() {
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                    ? "bg-white/90 backdrop-blur-md shadow-lg"
-                    : "bg-transparent"
+                ? "bg-white/90 backdrop-blur-md shadow-lg"
+                : "bg-transparent"
                 }`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -54,17 +54,15 @@ export default function Navbar() {
                                 key={link.href}
                                 href={link.href}
                                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${pathname === link.href
-                                        ? "text-primary bg-primary/10"
-                                        : "text-gray-600 hover:text-primary hover:bg-gray-50"
+                                    ? "text-primary bg-primary/10"
+                                    : "text-gray-600 hover:text-primary hover:bg-gray-50"
                                     }`}
                             >
                                 {link.label}
                             </Link>
                         ))}
                         <a
-                            href="https://wa.me/919049884354?text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            href="/book"
                             className="ml-3 px-5 py-2.5 bg-gradient-to-r from-primary to-primary-dark text-white text-sm font-semibold rounded-xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200 btn-shine"
                         >
                             Book Appointment
@@ -98,8 +96,8 @@ export default function Navbar() {
             {/* Mobile Drawer */}
             <div
                 className={`md:hidden fixed inset-0 top-16 bg-white z-40 transition-all duration-300 ${isOpen
-                        ? "opacity-100 translate-x-0"
-                        : "opacity-0 translate-x-full pointer-events-none"
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 translate-x-full pointer-events-none"
                     }`}
             >
                 <div className="flex flex-col p-6 gap-2">
@@ -109,17 +107,15 @@ export default function Navbar() {
                             href={link.href}
                             onClick={() => setIsOpen(false)}
                             className={`px-4 py-3 rounded-xl text-base font-medium transition-all ${pathname === link.href
-                                    ? "text-primary bg-primary/10"
-                                    : "text-gray-700 hover:bg-gray-50"
+                                ? "text-primary bg-primary/10"
+                                : "text-gray-700 hover:bg-gray-50"
                                 }`}
                         >
                             {link.label}
                         </Link>
                     ))}
                     <a
-                        href="https://wa.me/919049884354?text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href="/book"
                         className="mt-4 px-5 py-3 bg-gradient-to-r from-primary to-primary-dark text-white text-center font-semibold rounded-xl shadow-md"
                     >
                         Book Appointment

@@ -101,8 +101,8 @@ export default function ResultsPage() {
                                 <span
                                     key={tag}
                                     className={`px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition-all ${tag === "All"
-                                            ? "bg-primary text-white shadow-md"
-                                            : "bg-gray-100 text-gray-600 hover:bg-primary/10 hover:text-primary"
+                                        ? "bg-primary text-white shadow-md"
+                                        : "bg-gray-100 text-gray-600 hover:bg-primary/10 hover:text-primary"
                                         }`}
                                 >
                                     {tag}
@@ -197,9 +197,7 @@ export default function ResultsPage() {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <a
-                                href="https://wa.me/919049884354?text=Hi%2C%20I%20saw%20your%20results%20and%20would%20like%20to%20book%20a%20consultation"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href="/book"
                                 className="px-8 py-4 bg-gradient-to-r from-primary to-primary-dark text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 btn-shine"
                             >
                                 📞 Book Your Consultation
