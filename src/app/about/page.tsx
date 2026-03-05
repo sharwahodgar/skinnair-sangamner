@@ -301,9 +301,7 @@ export default function AboutPage() {
                                         📞 +91 90498 84354
                                     </a>
                                     <a
-                                        href="https://wa.me/919049884354"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                        href="/book"
                                         className="flex items-center gap-2 text-gray-600 hover:text-green-500 transition-colors"
                                     >
                                         💬 WhatsApp Chat

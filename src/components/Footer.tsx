@@ -58,9 +58,7 @@ export default function Footer() {
                                 </svg>
                             </a>
                             <a
-                                href="https://wa.me/919049884354"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href="/book"
                                 className="w-10 h-10 rounded-lg bg-gray-800 hover:bg-green-500/20 flex items-center justify-center transition-colors group"
                                 aria-label="WhatsApp"
                             >

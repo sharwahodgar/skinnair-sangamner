@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import ScrollReveal from "@/components/ScrollReveal";
+import PublicShell from "@/components/PublicShell";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -89,11 +86,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased bg-background text-foreground">
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <WhatsAppButton />
-        <ScrollReveal />
+        <PublicShell>{children}</PublicShell>
       </body>
     </html>
   );

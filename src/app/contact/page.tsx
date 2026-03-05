@@ -1,6 +1,3 @@
-"use client";
-
-import { useState, type FormEvent } from "react";
 import type { Metadata } from "next";
 
 const contactInfo = [
@@ -52,37 +49,6 @@ const contactInfo = [
 ];
 
 export default function ContactPage() {
-    const [submitted, setSubmitted] = useState(false);
-    const [loading, setLoading] = useState(false);
-
-    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setLoading(true);
-
-        // Simulate form submission (replace with Formspree or EmailJS in production)
-        const form = e.currentTarget;
-        const data = new FormData(form);
-
-        try {
-            // Using Formspree - replace YOUR_FORM_ID with actual ID
-            const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
-                method: "POST",
-                body: data,
-                headers: { Accept: "application/json" },
-            });
-
-            if (response.ok) {
-                setSubmitted(true);
-                form.reset();
-            }
-        } catch {
-            // Fallback — show success anyway for demo
-            setSubmitted(true);
-        } finally {
-            setLoading(false);
-        }
-    };
-
     return (
         <>
             {/* ===== HERO ===== */}
@@ -136,164 +102,19 @@ export default function ContactPage() {
                         ))}
                     </div>
 
-                    {/* ===== FORM + MAP ===== */}
-                    <div className="grid lg:grid-cols-2 gap-8">
-                        {/* Contact Form */}
-                        <div className="reveal">
-                            <div className="glass-card rounded-2xl p-8">
-                                <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                                    Send Us a Message
-                                </h2>
-                                <p className="text-sm text-gray-600 mb-6">
-                                    Fill out the form and we&apos;ll get back to you within 24 hours.
-                                </p>
-
-                                {submitted ? (
-                                    <div className="text-center py-12">
-                                        <div className="w-16 h-16 mx-auto rounded-full bg-green-100 flex items-center justify-center mb-4">
-                                            <svg
-                                                className="w-8 h-8 text-green-600"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor"
-                                                strokeWidth={2}
-                                            >
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    d="M4.5 12.75l6 6 9-13.5"
-                                                />
-                                            </svg>
-                                        </div>
-                                        <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                                            Message Sent!
-                                        </h3>
-                                        <p className="text-gray-600 mb-4">
-                                            Thank you for reaching out. We&apos;ll get back to you soon.
-                                        </p>
-                                        <button
-                                            onClick={() => setSubmitted(false)}
-                                            className="text-primary font-medium hover:underline"
-                                        >
-                                            Send another message
-                                        </button>
-                                    </div>
-                                ) : (
-                                    <form onSubmit={handleSubmit} className="space-y-5">
-                                        <div>
-                                            <label
-                                                htmlFor="name"
-                                                className="block text-sm font-medium text-gray-700 mb-1.5"
-                                            >
-                                                Full Name
-                                            </label>
-                                            <input
-                                                type="text"
-                                                id="name"
-                                                name="name"
-                                                required
-                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
-                                                placeholder="Your full name"
-                                            />
-                                        </div>
-                                        <div>
-                                            <label
-                                                htmlFor="phone"
-                                                className="block text-sm font-medium text-gray-700 mb-1.5"
-                                            >
-                                                Phone Number
-                                            </label>
-                                            <input
-                                                type="tel"
-                                                id="phone"
-                                                name="phone"
-                                                required
-                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
-                                                placeholder="+91 XXXXX XXXXX"
-                                            />
-                                        </div>
-                                        <div>
-                                            <label
-                                                htmlFor="email"
-                                                className="block text-sm font-medium text-gray-700 mb-1.5"
-                                            >
-                                                Email (Optional)
-                                            </label>
-                                            <input
-                                                type="email"
-                                                id="email"
-                                                name="email"
-                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
-                                                placeholder="you@example.com"
-                                            />
-                                        </div>
-                                        <div>
-                                            <label
-                                                htmlFor="message"
-                                                className="block text-sm font-medium text-gray-700 mb-1.5"
-                                            >
-                                                Your Message
-                                            </label>
-                                            <textarea
-                                                id="message"
-                                                name="message"
-                                                required
-                                                rows={4}
-                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm resize-none"
-                                                placeholder="Tell us about your concern or what treatment you're interested in..."
-                                            />
-                                        </div>
-                                        <button
-                                            type="submit"
-                                            disabled={loading}
-                                            className="w-full py-4 bg-gradient-to-r from-primary to-primary-dark text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed btn-shine"
-                                        >
-                                            {loading ? (
-                                                <span className="inline-flex items-center gap-2">
-                                                    <svg
-                                                        className="animate-spin w-5 h-5"
-                                                        fill="none"
-                                                        viewBox="0 0 24 24"
-                                                    >
-                                                        <circle
-                                                            className="opacity-25"
-                                                            cx="12"
-                                                            cy="12"
-                                                            r="10"
-                                                            stroke="currentColor"
-                                                            strokeWidth="4"
-                                                        />
-                                                        <path
-                                                            className="opacity-75"
-                                                            fill="currentColor"
-                                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-                                                        />
-                                                    </svg>
-                                                    Sending...
-                                                </span>
-                                            ) : (
-                                                "Send Message"
-                                            )}
-                                        </button>
-                                    </form>
-                                )}
-                            </div>
-                        </div>
-
-                        {/* Map */}
-                        <div className="reveal">
-                            <div className="rounded-2xl overflow-hidden shadow-lg h-full min-h-[400px]">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.5!2d74.2098!3d19.5685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDM0JzA2LjYiTiA3NMKwMTInMzUuMyJF!5e0!3m2!1sen!2sin!4v1234567890"
-                                    width="100%"
-                                    height="100%"
-                                    style={{ border: 0, minHeight: "400px" }}
-                                    allowFullScreen
-                                    loading="lazy"
-                                    referrerPolicy="no-referrer-when-downgrade"
-                                    title="Skinnair Clinic Location"
-                                />
-                            </div>
+                    {/* ===== MAP ===== */}
+                    <div className="reveal w-full max-w-5xl mx-auto">
+                        <div className="rounded-2xl overflow-hidden shadow-lg h-[500px]">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.5!2d74.2098!3d19.5685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDM0JzA2LjYiTiA3NMKwMTInMzUuMyJF!5e0!3m2!1sen!2sin!4v1234567890"
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0 }}
+                                allowFullScreen
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                title="Skinnair Clinic Location"
+                            />
                         </div>
                     </div>
                 </div>
